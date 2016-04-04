@@ -20,8 +20,9 @@ const DefaultTabBar = React.createClass({
 
   renderTabOption(name, page) {
     const isTabActive = this.props.activeTab === page;
-    const activeTextColor = this.props.activeTextColor || 'navy';
-    const inactiveTextColor = this.props.inactiveTextColor || 'black';
+    const activeTextColor = this.props.activeTextColor || "navy";
+    const inactiveTextColor = this.props.inactiveTextColor || "black";
+    const textStyle = this.props.textStyle || {};
 
     return <Button
       key={name}
@@ -31,7 +32,7 @@ const DefaultTabBar = React.createClass({
       onPress={() => this.props.goToPage(page)}
     >
       <View style={styles.tab}>
-        <Text style={{color: isTabActive ? activeTextColor : inactiveTextColor, fontWeight: isTabActive ? 'bold' : 'normal', }}>
+        <Text style={[textStyle, {color: isTabActive ? activeTextColor : inactiveTextColor, fontWeight: isTabActive ? 'bold' : 'normal', }]}>
           {name}
         </Text>
       </View>
